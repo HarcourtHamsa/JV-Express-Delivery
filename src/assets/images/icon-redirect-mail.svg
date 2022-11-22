@@ -1,0 +1,40 @@
+<svg width="96" height="77" viewBox="0 0 96 77" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    mailredirect
+  </title>
+  <defs>
+    <path id="a" d="M43 7V0H0v7h43z"/>
+    <path id="c" d="M19 0H0v7h19V0z"/>
+    <rect id="e" x="7" y="7" width="13" height="13" rx="6.5"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M93.6899783 0H21.3100217C20.0398357 0 19 1.03929247 19 2.31002173V74.6899783C19 75.9607075 20.0398357 77 21.3100217 77h72.3799566C94.9607075 77 96 75.9607075 96 74.6899783V2.31002173C96 1.03929247 94.9607075 0 93.6899783 0z" fill="#B3AEF1"/>
+    <g stroke="#8177E7" stroke-width="8" stroke-linecap="round">
+      <path d="M81 50V27.057358c-.298581-6.8712479-3.5643803-10.22163714-9.7973978-10.0511678-6.2330174.17046935-11.3005515.17046935-15.2026022 0"/>
+      <path stroke-linejoin="round" d="M60.99398385 8L52 16.99699092 61 26"/>
+    </g>
+    <g transform="translate(19 34)">
+      <mask id="b" fill="#fff">
+        <use xlink:href="#a"/>
+      </mask>
+      <path d="M8.66373467 0c.30561488 0-1.95927355 0-4.33186733 2.54545455L0 7h34l4.3318673-4.45454545C38.5629266 2.36483465 40.8278151 0 38.3318673 0H8.66373467z" fill="#A06245" mask="url(#b)"/>
+    </g>
+    <g transform="translate(0 34)">
+      <mask id="d" fill="#fff">
+        <use xlink:href="#c"/>
+      </mask>
+      <path d="M.9852251 0s-2.21675646 0 0 2.36483466L5.33015152 7H19l-4.3449264-4.63516534S12.4383171 0 10.2218599 0H.9852251z" fill="#C57C5A" mask="url(#d)"/>
+    </g>
+    <path d="M5 41v33.6474965S5 77 7.2696696 77H22V41H5z" fill="#E3A183"/>
+    <path d="M19 41v33.6483778S19 77 21.2421287 77h29.5154399S53 77 53 74.6483778V41H19z" fill="#C57C5A"/>
+    <path d="M25 59h12c1.1045695 0 2 .8954305 2 2v10c0 1.1045695-.8954305 2-2 2H25c-1.1045695 0-2-.8954305-2-2V61c0-1.1045695.8954305-2 2-2z" fill="#FFF"/>
+    <path fill="#DC1928" fill-rule="nonzero" d="M37 61h-3v3h3v-3"/>
+    <path fill="#DAD0CA" d="M25 68h12v-2H25m0 5h12v-2H25"/>
+    <g transform="translate(48 50)">
+      <path d="M15 16h19c1.1045695 0 2 .8954305 2 2l-2 2 2 1.5-2 1.5 2 2c0 1.1045695-.8954305 2-2 2H15c-1.1045695 0-2-.8954305-2-2v-7c0-1.1045695.8954305-2 2-2z" fill="#D0D5D8"/>
+      <rect fill="#FFF" width="27" height="27" rx="13.5"/>
+      <use fill="#B3AEF1" xlink:href="#e"/>
+      <rect stroke="#D0D5D8" stroke-width="4" x="9" y="9" width="9" height="9" rx="4.5"/>
+    </g>
+  </g>
+</svg>
