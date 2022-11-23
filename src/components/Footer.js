@@ -62,7 +62,7 @@ export default function Footer() {
               <Logo size={"30"} label={true}/>
             </Box>
             <Text fontSize={"sm"}>
-              © 2021 JV Express Delivery. All rights reserved
+              © 2021 GDE Delivery Company. All rights reserved
             </Text>
             <Stack direction={"row"} spacing={6}>
               <SocialButton label={"Twitter"} href={"#"}>

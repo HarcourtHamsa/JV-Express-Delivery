@@ -110,7 +110,7 @@ function Home() {
               Who We Are?
             </Text>
             <Text mb="5" fontSize="sm">
-              JV Express Delivery is an Afghanistan courier, parcel, and express
+              GDE Delivery Company is an Afghanistan courier, parcel, and express
               mail service which is a division of the German logistics company
               Deutsche Post DHL. The company delivers over 1.3 billion parcels
               per year.

@@ -29,7 +29,7 @@ function Home() {
             color="gray.400"
             cursor="pointer"
           />
-          <Text color="gray.500" fontSize="sm">JV Express Delivery</Text>
+          <Text color="gray.500" fontSize="sm">GDE Delivery Company</Text>
         </Flex>
         <Text fontSize="4xl" color="#D40511">
           Dashboard.

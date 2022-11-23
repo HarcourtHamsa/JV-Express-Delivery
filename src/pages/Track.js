@@ -41,19 +41,21 @@ function Track() {
   };
 
   // funtion to fetch data from firestore
-  const fetchData = async () => {
+  const fetchData = async (id) => {
     let result = new Promise((resolve, reject) => {
       firestore
         .collection("users")
-        .where("trackingId", "===", trackingID)
+        .where("trackingId", "==", id)
         .get()
         .then((snapShot) => {
-          console.log('shapshot', snapShot);
           snapShot.forEach((doc) => {
             resolve(doc.data());
           });
         })
-        .catch((err) => reject(err));
+        .catch((err) => {
+          console.log("Hei God");
+          reject(err);
+        });
     });
 
     return await result;
@@ -65,18 +67,15 @@ function Track() {
     return t.toDateString();
   }
 
-  async function getData() {
-    console.log("running getData function()");
-    await fetchData()
+  async function getData(id) {
+    await fetchData(id)
       .then((data) => {
-        console.log("package info... ", data);
         setPackageInfo(data);
-        console.log("setting package info");
         setIsSuccessful(true);
-        console.log("setting is successful");
         return data;
       })
       .catch((err) => {
+        console.log("Hei God");
         setLoading(false);
         alert(err);
       })
@@ -86,7 +85,7 @@ function Track() {
   const handleFormSubmission = async (e) => {
     e.preventDefault();
     setLoading(true); // show loading icon
-    await getData();
+    await getData(trackingID);
     setLoading(false); // remove loading icon
   };
 
@@ -95,11 +94,14 @@ function Track() {
 
     async function func(id) {
       if (typeof id === "string") {
-        setTrackingID(id);
+        // setTrackingID(id);
+        console.log(id);
         setLoading(true);
         try {
-          await getData();
+          console.log("tracking id from useEffect: ", trackingID);
+          await getData(id);
         } catch (error) {
+          console.log("Hei God");
           setLoading(false);
         } finally {
           setLoading(false);
@@ -115,7 +117,7 @@ function Track() {
       <Navbar />
       <SecondaryNav />
       <Box
-        h="300"
+        h={{base: '400', md: '300'}}
         bg="gray.800"
         bgImage={trackImg}
         bgPos="center"
@@ -124,7 +126,7 @@ function Track() {
         <Container maxW={"6xl"} h="inherit">
           <Center alignItems="center" justifyContent="flex-start" h="inherit">
             <Box>
-              <Text fontSize="5xl" color="white">
+              <Text fontSize="3xl" color="white">
                 Track an Item
               </Text>
               <Text
@@ -266,7 +268,12 @@ function Track() {
                     </Box>
                   </SimpleGrid>
 
-                  <Table variant="striped" fontSize={"sm"} mt="10">
+                  <Table
+                    variant="striped"
+                    fontSize={"sm"}
+                    mt="10"
+                    maxW={"full"}
+                  >
                     <TableCaption>
                       Real time information of package
                     </TableCaption>
@@ -309,7 +316,7 @@ function Track() {
                         </Th>
                       </Tr>
                     </Thead>
-                    <Tbody bg="white">
+                    <Tbody bg="white" overflowX={"scroll"}>
                       <Tr bg="white">
                         <Td>{packageInfo.from}</Td>
                         <Td>{packageInfo.to}</Td>

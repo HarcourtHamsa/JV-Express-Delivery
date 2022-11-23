@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <Box position={'fixed'} zIndex={100}>
       <Marquee style={{ backgroundColor: "black", color: 'white' }}>
-        Relied upon by more than 11 million people worldwide, JV Express Delivery is
+        Relied upon by more than 11 million people worldwide, GDE Delivery Company is
         committed to making package delivery elegant, productive, and safe.
       </Marquee>
       <Flex

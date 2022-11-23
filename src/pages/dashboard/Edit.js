@@ -19,7 +19,7 @@ function Home() {
               cursor="pointer"
               onClick={() => history.goBack()}
             />
-            <Text color="gray.500">JV Express Delivery</Text>
+            <Text color="gray.500">GDE Delivery Company</Text>
           </Flex>
         </Flex>
         <Text fontSize="4xl" color="black">
