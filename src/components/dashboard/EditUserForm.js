@@ -20,6 +20,7 @@ function EditUserForm() {
   const history = useHistory();
 
   const [modalIsVisible, setModalIsVisible] = React.useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [currentUser, setCurrentUser] = React.useState({});
   const [docID, setDocID] = React.useState("");
   const [apiState, setApiState] = React.useState({
@@ -28,16 +29,7 @@ function EditUserForm() {
     isSuccessful: false,
   });
   const [cst, fns] = React.useState({
-    trackingID: "",
-    from: "",
-    to: "",
-    receiverEmail: "",
-    status: "",
-    currentLocation: "",
-    quantity: "",
-    weight: "",
-    serviceType: "",
-    description: "",
+    ...currentUser,
   });
 
   React.useEffect(() => {
@@ -54,8 +46,7 @@ function EditUserForm() {
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           setDocID(doc.id);
-          console.log("document data", doc.data());
-          setCurrentUser(doc.data());
+          fns(doc.data());
         });
       });
 
@@ -101,36 +92,21 @@ function EditUserForm() {
   const setData = async () => {
     var result = new Promise((resolve, reject) => {
       resolve(
-        firestore
-          .collection("users")
-          .doc(docID)
-          .set({
-            from: cst.from ? cst.from : currentUser.from, // done
-            to: cst.to ? cst.to : currentUser.to, // done
-            currentLocation: cst.currentLocation // done
-              ? cst.currentLocation
-              : currentUser.currentLocation,
-            status: cst.status ? cst.status : currentUser.status, // done
-            trackingId: currentUser.trackingId,
-            receiverEmail: cst.receiverEmail // done
-              ? cst.receiverEmail
-              : currentUser.receiverEmail,
-            quantity: cst.quantity // done
-              ? cst.quantity
-              : currentUser.quantity,
-            weight: cst.weight // done
-              ? cst.weight
-              : currentUser.weight,
-            serviceType: cst.serviceType // done
-              ? cst.serviceType
-              : currentUser.serviceType,
-            description: cst.description // done
-              ? cst.description
-              : currentUser.description,
-            dateOfDelivery: currentUser.dateOfDelivery,
-            shippmentDate: currentUser.shippmentDate,
-            imageURL: currentUser.shippmentDate,
-          })
+        firestore.collection("users").doc(docID).set({
+          from: cst.from,
+          to: cst.to,
+          currentLocation: cst.currentLocation,
+          status: cst.status,
+          trackingId: cst.trackingId,
+          receiverEmail: cst.receiverEmail,
+          quantity: cst.quantity,
+          weight: cst.weight,
+          serviceType: cst.serviceType,
+          description: cst.description,
+          dateOfDelivery: cst.dateOfDelivery,
+          shippmentDate: cst.shippmentDate,
+          imageURL: cst.shippmentDate,
+        })
       );
     });
 
@@ -141,20 +117,10 @@ function EditUserForm() {
     e.preventDefault();
     setApiState((s) => ({ ...s, isLoading: true }));
 
-    console.log(cst);
-
     await setData()
       .then((res) => {
         setApiState((s) => ({ ...s, isLoading: false, isSuccessful: true }));
         setModalIsVisible(true);
-        fns((s) => ({
-          currentLocation: "",
-          from: "",
-          receiverEmail: "",
-          status: "",
-          to: "",
-          trackingID: "",
-        }));
       })
       .catch((err) =>
         setApiState((s) => ({ ...s, isError: err.message, isLoading: false }))
@@ -172,11 +138,11 @@ function EditUserForm() {
             <Input
               isDisabled
               type="text"
-              placeholder={currentUser?.trackingId}
+              // placeholder={currentUser?.trackingId}
               variant="filled"
               size="md"
               borderRadius="sm"
-              value={currentUser?.trackingId}
+              value={cst.trackingId}
               required
             />
           </FormControl>
@@ -187,7 +153,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.from}
+                placeholder={cst?.from}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
@@ -202,7 +168,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.to}
+                placeholder={cst?.to}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
@@ -218,7 +184,7 @@ function EditUserForm() {
             </FormLabel>
             <Input
               type="email"
-              placeholder={currentUser?.receiverEmail}
+              placeholder={cst?.receiverEmail}
               variant="filled"
               size="md"
               borderRadius="sm"
@@ -233,7 +199,7 @@ function EditUserForm() {
             </FormLabel>
             <Input
               type="text"
-              placeholder={currentUser?.status}
+              placeholder={cst?.status}
               variant="filled"
               size="md"
               borderRadius="sm"
@@ -248,7 +214,7 @@ function EditUserForm() {
             </FormLabel>
             <Input
               type="text"
-              placeholder={currentUser?.currentLocation}
+              placeholder={cst?.currentLocation}
               variant="filled"
               size="md"
               borderRadius="sm"
@@ -268,7 +234,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.quantity}
+                placeholder={cst?.quantity}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
@@ -284,7 +250,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.weight}
+                placeholder={cst?.weight}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
@@ -300,7 +266,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.serviceType}
+                placeholder={cst?.serviceType}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
@@ -316,7 +282,7 @@ function EditUserForm() {
               </FormLabel>
               <Input
                 type="text"
-                placeholder={currentUser?.description}
+                placeholder={cst?.description}
                 variant="filled"
                 size="md"
                 borderRadius="sm"
