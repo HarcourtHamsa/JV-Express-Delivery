@@ -17,7 +17,7 @@ import { auth } from "../../firebase";
 import { AppContext } from "../../contextAPI/context";
 import { Redirect } from "react-router";
 import Navbar from "../../components/Navbar";
-import WhatsAppWidget from "../../components/WhatsAppWidget";
+// import WhatsAppWidget from "../../components/WhatsAppWidget";
 
 function Login() {
   const [passwordIsVisible, setPasswordIsVisible] = React.useState(false);
@@ -71,7 +71,7 @@ function Login() {
   return (
     <div>
       <Navbar />
-      <WhatsAppWidget />
+      {/* <WhatsAppWidget /> */}
       <Flex minH={"100vh"} align={"center"} justify={"center"} bg={"gray.50"}>
         <Stack
           spacing={8}

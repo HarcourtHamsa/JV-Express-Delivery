@@ -3,13 +3,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Box, Center, Container, Text, SimpleGrid } from "@chakra-ui/react";
 import banner from "../assets/images/header.jpg";
-import WhatsAppWidget from "../components/WhatsAppWidget";
+// import WhatsAppWidget from "../components/WhatsAppWidget";
 
 function About() {
   return (
     <div>
       <Navbar />
-      <WhatsAppWidget />
+      {/* <WhatsAppWidget /> */}
       <Box
         height="50vh"
         bgImage={banner}

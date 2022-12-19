@@ -24,7 +24,7 @@ import { BsStack } from "react-icons/bs";
 import { ImAirplane } from "react-icons/im";
 import { RiShipFill } from "react-icons/ri";
 import { FaTruckMoving } from "react-icons/fa";
-import WhatsAppWidget from "../components/WhatsAppWidget";
+// import WhatsAppWidget from "../components/WhatsAppWidget";
 
 function Home() {
   return (
@@ -32,7 +32,7 @@ function Home() {
       <Navbar />
       <SecondaryNav />
       <Jumbotron />
-      <WhatsAppWidget />
+      {/* <WhatsAppWidget /> */}
 
       <Heading
         textAlign={"center"}
